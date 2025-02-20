@@ -1,0 +1,89 @@
+.ps5-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+  }
+  
+  // 🔹 Fondo con opacidad controlada
+  .ps5-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	transition: opacity 0.3s ease-in-out;
+	z-index: -1;
+  }
+  
+  // 🔹 Menú en primer plano
+  .ps5-menu {
+	position: relative;
+	z-index: 1;
+	text-align: center;
+  }
+  
+  // 🔹 Botones del menú
+  .ps5-nav {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	padding: 0;
+	list-style: none;
+	flex-wrap: wrap;
+  }
+  
+  .ps5-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  .ps5-link {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: transform 0.3s ease-in-out;
+  }
+  
+  .ps5-link:hover {
+	transform: scale(1.1);
+  }
+  
+  .ps5-icon {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 15px;
+  }
+  
+  // 🔹 Responsive
+  @media (min-width: 768px ) and (max-width:1028px) { // Tablet
+	.ps5-nav {
+	  flex-direction: row;
+	  gap: 15px;
+	}
+	.ps5-icon {
+	  width: 80px;
+	  height: 80px;
+	}
+  }
+  
+  @media (max-width: 768px) { // Móvil
+	.ps5-nav {
+	  flex-direction: column;
+	  align-items: center;
+	}
+	.ps5-icon {
+	  width: 70px;
+	  height: 70px;
+	}
+  }
+  

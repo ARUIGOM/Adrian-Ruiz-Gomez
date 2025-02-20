@@ -1,0 +1,39 @@
+/* src/components/GameCard/GameCard.scss */
+.game-card {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .game-card:hover {
+    transform: scale(1.1); /* Aumentar el tamaño del item */
+
+  }
+  
+  .game-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .game-card-img:hover
+  {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco semi-transparente */
+    border: 2px solid rgb(255, 0, 0); /* Borde blanco semi-transparente */
+    box-shadow: 0 0 10px rgb(255, 0, 0); /* Sombra suave */
+    transform: scale(1.05); /* Aumentar el tamaño del item */
+  }
+  
+  .game-card-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,59 @@
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skill-card {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  overflow: hidden; /* Asegura que el contenido no sobresalga */
+  text-align: center; /* Centra el texto */
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+}
+
+.skill-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.skill-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+
+.skill-card p {
+  font-size: 0.9em;
+  color: #666;
+  text-align: center;
+  overflow: hidden; /* Asegura que el texto no sobresalga */
+  text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es muy largo */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limita el texto a 3 líneas */
+  -webkit-box-orient: vertical;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+

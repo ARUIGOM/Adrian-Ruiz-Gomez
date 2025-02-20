@@ -1,0 +1,76 @@
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.project-card {
+  width: 300px;
+  height: 400px; /* Asegura que todas las tarjetas tengan la misma altura */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  overflow: hidden;
+  text-align: center;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.project-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+}
+
+.project-card p {
+  font-size: 1em;
+  color: #666;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 16px; /* Añadir margen inferior para evitar que el texto se tape */
+}
+
+.project-card.scrollable {
+  overflow-y: auto; /* Permitir scroll vertical */
+}
+
+.project-card button {
+  margin-top: auto; /* Empuja el botón hacia la parte inferior de la tarjeta */
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.project-card button:hover {
+  background-color: #0056b3;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 32px;
+}

@@ -1,0 +1,44 @@
+.power-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    gap: 10px;
+  
+    &.off {
+      background-color: #555; // Color cuando está apagado
+    }
+  
+    &.on {
+      background-color: #0a74da; // Color cuando está encendido
+      box-shadow: 0 0 10px rgba(10, 116, 218, 0.7); // Efecto de resplandor
+    }
+  
+    svg {
+      transition: transform 0.3s;
+    }
+  
+    span {
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  
+    &:hover {
+      background-color: #444; // Cambia el color al pasar el mouse
+    }
+  
+    &:active {
+      transform: scale(0.95); // Efecto de pulsado
+    }
+  }
+  
