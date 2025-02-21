@@ -13,25 +13,8 @@ const users = [
   { id: 2, name: "Maria", avatar: user2 },
 ];
 
-const puzzleVariants = {
-  hidden: (index: number) => ({
-    opacity: 0,
-    x: (index % 2 === 0 ? -1 : 1) * 100, // Se mueven desde lados opuestos
-    y: (index < 2 ? -1 : 1) * 100, // Arriba o abajo
-    rotate: index % 2 === 0 ? -30 : 30, // Rotación inicial
-  }),
-  visible: {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    rotate: 0,
-    transition: { type: "spring", stiffness: 100, damping: 10, delay: 0.2 },
-  },
-};
-
 const User = () => {
   const [selectedUser, setSelectedUser] = useState(null);
-  const [musicPlayed, setMusicPlayed] = useState(false);
   const [musicSrc, setMusicSrc] = useState(startupMusic);
   const audioRef = useRef<HTMLAudioElement>(null);
   const navigate = useNavigate();
@@ -44,7 +27,6 @@ const User = () => {
   const startMusic = () => {
     if (audioRef.current) {
       audioRef.current.play();
-      setMusicPlayed(true);
     }
   };
 
