@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import{ useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import user1 from "../../public/assets/avatar/user1.jpg";
