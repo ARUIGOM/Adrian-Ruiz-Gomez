@@ -7,10 +7,8 @@ import htmlIcon from "../../public/assets/iconos/html.png";
 import Mysql from "../../public/assets/iconos/Mysql.png";
 import Mongodb from "../../public/assets/iconos/mongodb.png";
 import js from "../../public/assets/iconos/js.jpg";
-import { useNavigate } from 'react-router-dom';
 
 const Skills = () => {
-  const navigate = useNavigate(); // Corregir el uso de navigate
   const skills = [
     { name: "Java", icon: java, description: "Lenguaje de programación orientado a objetos." },
     { name: "JavaScript", icon: js, description: "Lenguaje de programación utilizado para el desarrollo web." },
@@ -35,9 +33,6 @@ const Skills = () => {
           </div>
         ))}
       </div>
-      <button className="back-button" onClick={() => navigate("/")}>
-        Volver a Home
-      </button>
     </div>
   );
 };

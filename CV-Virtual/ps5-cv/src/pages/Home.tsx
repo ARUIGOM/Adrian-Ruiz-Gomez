@@ -1,4 +1,4 @@
-import{ useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import user1 from "../../public/assets/avatar/user1.jpg";
@@ -19,7 +19,7 @@ const users = [
 ];
 
 const puzzleVariants = {
-  hidden: (index) => ({
+  hidden: (index: number) => ({
     opacity: 0,
     x: (index % 2 === 0 ? -1 : 1) * 100, // Se mueven desde lados opuestos
     y: (index < 2 ? -1 : 1) * 100, // Arriba o abajo
@@ -40,7 +40,7 @@ const Home = () => {
   const [musicSrc, setMusicSrc] = useState(startupMusic);
   const [background, setBackground] = useState("");
   const [isDarkened, setIsDarkened] = useState(false);
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const navigate = useNavigate();
 
   const startMusic = () => {
@@ -50,7 +50,7 @@ const Home = () => {
     }
   };
 
-  const handleUserSelection = (user) => {
+  const handleUserSelection = (user: any) => {
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
@@ -62,7 +62,7 @@ const Home = () => {
     }
   };
 
-  const handleMouseEnter = (image) => {
+  const handleMouseEnter = (image: any) => {
     setBackground(image);
     setIsDarkened(true);
   };
