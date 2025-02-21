@@ -1,6 +1,8 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Education = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
             <h1>Educación</h1>
@@ -17,6 +19,9 @@ const Education = () => {
                     <p>Enfoque en la programación de paguinas web con Nodejs , React y Mongodb y MYSQL .</p>
                 </li>
             </ul>
+            <button className="back-button" onClick={() => navigate("/")}>
+                Volver a Home
+            </button>
         </div>
     );
 };

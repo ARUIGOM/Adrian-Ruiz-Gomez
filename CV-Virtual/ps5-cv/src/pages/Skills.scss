@@ -6,7 +6,6 @@
 
 .skill-card {
   width: 200px;
-  height: 200px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 16px;
@@ -41,12 +40,12 @@
   font-size: 0.9em;
   color: #666;
   text-align: center;
-  overflow: hidden; /* Asegura que el texto no sobresalga */
-  text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es muy largo */
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limita el texto a 3 líneas */
-  -webkit-box-orient: vertical;
+  /* Elimina las siguientes propiedades para mostrar el texto completo */
+  overflow: visible; /* Permite que el texto se muestre completo */
+  text-overflow: initial; /* Restablece el comportamiento de desbordamiento del texto */
+  display: block; /* Cambia el display a block para que el texto ocupe todo el ancho disponible */
 }
+
 h1 {
   text-align: center;
   margin-bottom: 32px;
@@ -56,4 +55,3 @@ h1 {
   text-align: center;
   margin-top: 20px;
 }
-

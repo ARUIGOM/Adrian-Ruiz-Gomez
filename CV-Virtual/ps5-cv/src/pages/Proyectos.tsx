@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./Proyectos.scss";
 import project1 from "../../public/assets/proyectos/proyectos.png";
 import project2 from "../../public/assets/proyectos/proyectos.png";
