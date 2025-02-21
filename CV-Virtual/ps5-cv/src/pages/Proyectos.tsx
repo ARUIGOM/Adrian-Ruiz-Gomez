@@ -1,10 +1,11 @@
-
+import { useNavigate } from 'react-router-dom';
 import "./Proyectos.scss";
 import project1 from "../../public/assets/proyectos/proyectos.png";
 import project2 from "../../public/assets/proyectos/proyectos.png";
 import project3 from "../../public/assets/proyectos/proyectos.png";
 
 const Proyectos = () => {
+  const navigate = useNavigate();
   const proyectos = [
     { nombre: 'Proyecto TFG frontend', descripcion: 'Aquí está la parte del frontend de mi proyecto', imagen: project1, link: 'https://frontend.example.com' },
     { nombre: 'Proyecto TFG backend', descripcion: 'Aquí está la parte del backend de mi proyecto', imagen: project2, link: 'https://backend.example.com' },
@@ -24,6 +25,9 @@ const Proyectos = () => {
           </div>
         ))}
       </div>
+      <button className="back-button" onClick={() => navigate("/")}>
+        Volver a Home
+      </button>
     </div>
   );
 };
