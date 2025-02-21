@@ -35,7 +35,7 @@ const Skills = () => {
           </div>
         ))}
       </div>
-      <button className="back-button" onClick={() => navigate("/")}>
+      <button className="back-button" onClick={() => navigate("/home")}>
         Volver a Home
       </button>
     </div>

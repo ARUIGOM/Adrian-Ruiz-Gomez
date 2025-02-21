@@ -25,7 +25,7 @@ const Experience = () => {
           <li>Uso de Redes Locales , montaje y mantenimiento de ordenadores y visita a otras empresas a solucionart problemas.</li>
         </ul>
       </div>
-      <button className="back-button" onClick={() => navigate("/")}>
+      <button className="back-button" onClick={() => navigate("/home")}>
         Volver a Home
       </button>
     </div>

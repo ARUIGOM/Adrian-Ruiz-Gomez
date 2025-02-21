@@ -13,7 +13,7 @@ const Contact = () => {
           <li className="contact-item">Mi numero de telefono es este: 694 42 66 31</li>
           <li className="contact-item">Mi correo electronico es este: gokadria05@gmail.com</li>
         </ul>
-        <button className="back-button" onClick={() => navigate("/")}>
+        <button className="back-button" onClick={() => navigate("/home")}>
           Volver a Home
         </button>
       </div>

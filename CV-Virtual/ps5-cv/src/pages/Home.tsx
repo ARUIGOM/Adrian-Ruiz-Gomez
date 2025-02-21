@@ -1,22 +1,15 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import user1 from "../../public/assets/avatar/user1.jpg";
-import user2 from "../../public/assets/avatar/user2.jpg";
-import startupMusic from "../../public/assets/musicas/Power.mp3";
-import menuMusic from "../../public/assets/musicas/Menu.mp3";
 import Perfil from "../../public/assets/images/Perfil.png";
 import Educacion from "../../public/assets/images/Educacion.png";
 import Experiencia from "../../public/assets/images/Experiencia.png";
 import Proyectos from "../../public/assets/images/Proyectos.png";
 import Habilidades from "../../public/assets/images/Habilidades.png";
 import Contactos from "../../public/assets/images/Contactos.png";
+import clickMusic from "../../public/assets/musicas/Click.mp3";
+import menuMusic from "../../public/assets/musicas/Menu.mp3"; // Nueva importación
 import "./ps5menu.scss";
-
-const users = [
-  { id: 1, name: "Adrian Ruiz", avatar: user1 },
-  { id: 2, name: "Maria", avatar: user2 },
-];
 
 const puzzleVariants = {
   hidden: (index: number) => ({
@@ -34,33 +27,16 @@ const puzzleVariants = {
   },
 };
 
-const Home = () => {
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [musicPlayed, setMusicPlayed] = useState(false);
-  const [musicSrc, setMusicSrc] = useState(startupMusic);
+export const Home = () => {
   const [background, setBackground] = useState("");
   const [isDarkened, setIsDarkened] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const navigate = useNavigate();
+  const audioRef = useRef<HTMLAudioElement>(null);
 
-  const startMusic = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
-      setMusicPlayed(true);
-    }
-  };
-
-  const handleUserSelection = (user: any) => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-    setSelectedUser(user);
-    setMusicSrc(menuMusic);
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
-  };
+  useEffect(() => {
+    const audio = new Audio(menuMusic);
+    audio.play();
+  }, []);
 
   const handleMouseEnter = (image: any) => {
     setBackground(image);
@@ -69,6 +45,13 @@ const Home = () => {
 
   const handleMouseLeave = () => {
     setIsDarkened(false);
+  };
+
+  const handleClick = (path: string) => {
+    const clickAudio = new Audio(clickMusic);
+    clickAudio.play().then(() => {
+      navigate(path);
+    });
   };
 
   return (
@@ -81,73 +64,42 @@ const Home = () => {
         }}
       ></div>
 
-      {!musicPlayed && (
-        <div className="start-screen">
-          <button className="start-button btn-shine" onClick={startMusic}>
-            Iniciar Consola
-          </button>
-        </div>
-      )}
-      <audio ref={audioRef} src={musicSrc} loop />
-      {musicPlayed && (
-        <>
-          {!selectedUser ? (
-            <div className="user-selection">
-              <h2>Selecciona un usuario</h2>
-              <div className="user-list">
-                {users.map((user) => (
-                  <motion.div
-                    key={user.id}
-                    className="user-item"
-                    onClick={() => handleUserSelection(user)}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <img src={user.avatar} alt={user.name} className="user-avatar" />
-                    <span>{user.name}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <motion.div
-              className="ps5-menu"
-              initial="hidden"
-              animate="visible"
-              variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+      <audio ref={audioRef} src={menuMusic} loop autoPlay />
+      <motion.div
+        className="ps5-menu"
+        initial="hidden"
+        animate="visible"
+        variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+      >
+        <h2 className="menu-title">Menú Principal</h2>
+        <ul className="ps5-nav">
+          {[
+            { image: Perfil, label: "Perfil", path: "/profile" },
+            { image: Experiencia, label: "Experience", path: "/experience" },
+            { image: Habilidades, label: "Skills", path: "/skills" },
+            { image: Educacion, label: "Education", path: "/education" },
+            { image: Proyectos, label: "Proyectos", path: "/proyectos" },
+            { image: Contactos, label: "Contactos", path: "/contact" },
+          ].map((item, index) => (
+            <motion.li
+              key={index}
+              className="ps5-item"
+              variants={puzzleVariants}
+              custom={index}
             >
-              <h2 className="menu-title">Menú Principal</h2>
-              <ul className="ps5-nav">
-                {[
-                  { image: Perfil, label: "Perfil", path: "/profile" },
-                  { image: Experiencia, label: "Experience", path: "/experience" },
-                  { image: Habilidades, label: "Skills", path: "/skills" },
-                  { image: Educacion, label: "Education", path: "/education" },
-                  { image: Proyectos, label: "Proyectos", path: "/proyectos" },
-                  { image: Contactos, label: "Contactos", path: "/contact" },
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className="ps5-item"
-                    variants={puzzleVariants}
-                    custom={index}
-                  >
-                    <button
-                      className="ps5-link"
-                      onClick={() => navigate(item.path)}
-                      onMouseEnter={() => handleMouseEnter(item.image)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <img src={item.image} alt={item.label} className="ps5-icon" />
-                      <span>{item.label}</span>
-                    </button>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-        </>
-      )}
+              <button
+                className="ps5-link"
+                onClick={() => handleClick(item.path)}
+                onMouseEnter={() => handleMouseEnter(item.image)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <img src={item.image} alt={item.label} className="ps5-icon" />
+                <span>{item.label}</span>
+              </button>
+            </motion.li>
+          ))}
+        </ul>
+      </motion.div>
     </div>
   );
 };

@@ -19,7 +19,7 @@ const Education = () => {
                     <p>Enfoque en la programación de paguinas web con Nodejs , React y Mongodb y MYSQL .</p>
                 </li>
             </ul>
-            <button className="back-button" onClick={() => navigate("/")}>
+            <button className="back-button" onClick={() => navigate("/home")}>
                 Volver a Home
             </button>
         </div>

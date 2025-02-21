@@ -7,9 +7,9 @@ import project3 from "../../public/assets/proyectos/proyectos.png";
 const Proyectos = () => {
   const navigate = useNavigate();
   const proyectos = [
-    { nombre: 'Proyecto TFG frontend', descripcion: 'Aquí está la parte del frontend de mi proyecto', imagen: project1, link: 'https://frontend.example.com' },
-    { nombre: 'Proyecto TFG backend', descripcion: 'Aquí está la parte del backend de mi proyecto', imagen: project2, link: 'https://backend.example.com' },
-    { nombre: 'Listado de bosses y platino en React', descripcion: 'Este es un proyecto personal para ayudar a las personas perdidas con todos los bosses, guías, armas, etc.', imagen: project3, link: 'https://bosses.example.com', scrollable: true },
+    { nombre: 'Proyecto TFG frontend', descripcion: 'Aquí está la parte del frontend de mi proyecto', imagen: project1, link: 'https://github.com/ARUIGOM/tarea-fromtend' },
+    { nombre: 'Proyecto TFG backend', descripcion: 'Aquí está la parte del backend de mi proyecto', imagen: project2, link: 'https://github.com/ARUIGOM/Ejercicio' },
+    { nombre: 'Listado de bosses y platino en React', descripcion: 'Este es un proyecto personal para ayudar a las personas perdidas con todos los bosses, guías, armas, etc.', imagen: project3, link: 'https://github.com/ARUIGOM/Lista-Black-Myth-Wukong', scrollable: true },
   ];
 
   return (
@@ -25,7 +25,7 @@ const Proyectos = () => {
           </div>
         ))}
       </div>
-      <button className="back-button" onClick={() => navigate("/")}>
+      <button className="back-button" onClick={() => navigate("/home")}>
         Volver a Home
       </button>
     </div>
